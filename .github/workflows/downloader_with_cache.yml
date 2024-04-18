@@ -1,0 +1,574 @@
+name: Downloader
+on:
+    workflow_dispatch:
+permissions:
+    contents: write
+jobs:
+    download:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Download
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                  sudo apt update
+                  sudo apt install python3 python3-pip -y
+                  pip3 install -r requirements.txt
+                  python3 download.py
+            - name: "cache1"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_1.csv
+                key: B_instruments-1
+            - name: "cache2"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_2.csv
+                key: B_instruments-2
+            - name: "cache3"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_3.csv
+                key: B_instruments-3
+            - name: "cache4"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_4.csv
+                key: B_instruments-4
+            - name: "cache5"  
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_5.csv
+                key: B_instruments-5
+            - name: "cache6"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_6.csv
+                key: B_instruments-6
+            - name: "cache7"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_7.csv
+                key: B_instruments-7
+            - name: "cache8"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_8.csv
+                key: B_instruments-8
+            - name: "cache9"  
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_9.csv
+                key: B_instruments-9
+            - name: "cache10"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_10.csv
+                key: B_instruments-10
+            - name: "cache11"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_11.csv
+                key: B_instruments-11
+            - name: "cache12"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_12.csv
+                key: B_instruments-12
+            - name: "cache13"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_13.csv
+                key: B_instruments-13
+            - name: "cache14"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_14.csv
+                key: B_instruments-14
+            - name: "cache15"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_15.csv
+                key: B_instruments-15
+            - name: "cache16"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_16.csv
+                key: B_instruments-16
+            - name: "cache17"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_17.csv
+                key: B_instruments-17
+            - name: "cache18"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_18.csv
+                key: B_instruments-18
+            - name: "cache19"
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_19.csv
+                key: B_instruments-19
+
+    cap1:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_1.csv
+                key: B_instruments-1
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_1.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_1.csv
+                key: B_instruments-1 
+    cap2:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_2.csv
+                key: B_instruments-2
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_2.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_2.csv
+                key: B_instruments-2
+    cap3:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_3.csv
+                key: B_instruments-3
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_3.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_3.csv
+                key: B_instruments-3
+    cap4:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_4.csv
+                key: B_instruments-4 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_4.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_4.csv
+                key: B_instruments-4 
+    cap5:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_5.csv
+                key: B_instruments-5 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_5.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_5.csv
+                key: B_instruments-5
+    cap6:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_6.csv
+                key: B_instruments-6
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_6.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_6.csv
+                key: B_instruments-6
+    cap7:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_7.csv
+                key: B_instruments-7
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_7.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_7.csv
+                key: B_instruments-7 
+    cap8:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_8.csv
+                key: B_instruments-8 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_8.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_8.csv
+                key: B_instruments-8
+    cap9:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_9.csv
+                key: B_instruments-9 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_9.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_9.csv
+                key: B_instruments-9
+    cap10:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_10.csv
+                key: B_instruments-10 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_10.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_10.csv
+                key: B_instruments-10
+    cap11:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_11.csv
+                key: B_instruments-11 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_11.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_11.csv
+                key: B_instruments-11 
+    cap12:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_12.csv
+                key: B_instruments-12
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                pip install -r requirements.txt
+                python3 download2.py B_instruments_12.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_12.csv
+                key: B_instruments-12
+    cap13:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_13.csv
+                key: B_instruments-13
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_13.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_13.csv
+                key: B_instruments-13
+    cap14:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_14.csv
+                key: B_instruments-14 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_14.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_14.csv
+                key: B_instruments-14 
+    cap15:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_15.csv
+                key: B_instruments-15 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_15.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_15.csv
+                key: B_instruments-15 
+    cap16:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_16.csv
+                key: B_instruments-16 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_16.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_16.csv
+                key: B_instruments-16 
+    cap17:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_17.csv
+                key: B_instruments-17 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_17.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_17.csv
+                key: B_instruments-17
+    cap18:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_18.csv
+                key: B_instruments-18
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_18.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_18.csv
+                key: B_instruments-18
+    cap19:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: restore
+              uses: actions/cache/restore@v4
+              with:
+                path: B_instruments_19.csv
+                key: B_instruments-19
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_19.csv
+            - name: save
+              uses: actions/cache/save@v4
+              with:
+                path: B_instruments_19.csv
+                key: B_instruments-19
+            
