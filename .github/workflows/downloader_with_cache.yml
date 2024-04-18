@@ -258,7 +258,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_6.csv
-                key: B_instruments-6
+                key: B_instruments-6-cap
     cap7:
         needs: download
         runs-on: ubuntu-latest
@@ -269,7 +269,7 @@ jobs:
               uses: actions/cache/restore@v4
               with:
                 path: B_instruments_7.csv
-                key: B_instruments-7-cap
+                key: B_instruments-7
             - name: market_cap
               env:
                     URL1: ${{ secrets.URL1 }}
