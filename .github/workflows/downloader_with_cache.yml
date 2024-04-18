@@ -2,8 +2,9 @@ name: Downloader with cache
 on:
     workflow_dispatch:
 permissions:
-    contents: write
+    actions: write
     id-token: write
+    contents: write
 jobs:
     download:
         runs-on: ubuntu-latest
