@@ -1,0 +1,562 @@
+name: Downloader
+on:
+    workflow_dispatch:
+permissions:
+    contents: write
+jobs:
+    download:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Download
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                  sudo apt update
+                  sudo apt install python3 python3-pip -y
+                  pip3 install -r requirements.txt
+                  python3 download.py
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add --all
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+
+    cap1:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list1
+              run: | 
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_1.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25    
+                command: |
+                    git add B_instruments_1.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap2:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list2
+              run: |
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_2.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                  git add B_instruments_2.csv
+                  git config --global user.email "somegreya@gmail.com"
+                  git config --global user.name "@gitci"
+                  git commit -m "Add encrypted file"
+                  git push -f origin main 
+    cap3:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list3
+              run: |
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_3.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_3.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap4:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list4
+              run: |
+                   git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_4.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_4.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap5:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list5
+              run: |
+                   git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_5.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_5.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap6:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list6
+              run: |
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_6.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_6.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap7:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list7
+              run: |
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_7.csv
+            - name: "Push"
+              run: |
+                  git add B_instruments_7.csv
+                  git config --global user.email "somegreya@gmail.com"
+                  git config --global user.name "@gitci"
+                  git commit -m "Add encrypted file"
+                  git push -f origin main 
+    cap8:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list8
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_8.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_8.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap9:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list9
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_9.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_9.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap10:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list10
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_10.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_10.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap11:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list11
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_11.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_11.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap12:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list12
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                pip install -r requirements.txt
+                python3 download2.py B_instruments_12.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_12.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap13:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list13
+              run: |
+                    git pull origin main
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_13.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_13.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap14:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list14
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_14.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_14.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap15:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list15
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_15.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_15.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap16:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list16
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_16.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_16.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap17:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list17
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_17.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_17.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap18:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list18
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_18.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_18.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+    cap19:
+        needs: download
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: list19
+              run: |
+                    git pull origin main 
+            - name: market_cap
+              env:
+                    URL1: ${{ secrets.URL1 }}
+                    URL2: ${{ secrets.URL2 }}
+                    URL3: ${{ secrets.URL3 }}
+              run: |
+                    pip install -r requirements.txt
+                    python3 download2.py B_instruments_19.csv
+            - name: "Push"
+              uses: nick-fields/retry@v3
+              with:
+                timeout_seconds: 15
+                max_attempts: 25
+                command: |
+                    git add B_instruments_19.csv
+                    git config --global user.email "somegreya@gmail.com"
+                    git config --global user.name "@gitci"
+                    git commit -m "Add encrypted file"
+                    git push -f origin main 
+            
