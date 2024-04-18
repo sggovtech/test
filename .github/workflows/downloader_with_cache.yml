@@ -138,7 +138,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_1.csv
-                key: B_instruments-1 
+                key: B_instruments-1-cap
     cap2:
         needs: download
         runs-on: ubuntu-latest
@@ -154,7 +154,7 @@ jobs:
               env:
                     URL1: ${{ secrets.URL1 }}
                     URL2: ${{ secrets.URL2 }}
-                    URL3: ${{ secrets.URL3 }}
+                    URL3: ${{ secrets.URL3 }}-cap
               run: |
                     pip install -r requirements.txt
                     python3 download2.py B_instruments_2.csv
@@ -162,7 +162,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_2.csv
-                key: B_instruments-2
+                key: B_instruments-2-cap
     cap3:
         needs: download
         runs-on: ubuntu-latest
@@ -186,7 +186,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_3.csv
-                key: B_instruments-3
+                key: B_instruments-3-cap
     cap4:
         needs: download
         runs-on: ubuntu-latest
@@ -210,7 +210,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_4.csv
-                key: B_instruments-4 
+                key: B_instruments-4-cap 
     cap5:
         needs: download
         runs-on: ubuntu-latest
@@ -234,7 +234,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_5.csv
-                key: B_instruments-5
+                key: B_instruments-5-cap
     cap6:
         needs: download
         runs-on: ubuntu-latest
@@ -269,7 +269,7 @@ jobs:
               uses: actions/cache/restore@v4
               with:
                 path: B_instruments_7.csv
-                key: B_instruments-7
+                key: B_instruments-7-cap
             - name: market_cap
               env:
                     URL1: ${{ secrets.URL1 }}
@@ -282,7 +282,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_7.csv
-                key: B_instruments-7 
+                key: B_instruments-7-cap 
     cap8:
         needs: download
         runs-on: ubuntu-latest
@@ -306,7 +306,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_8.csv
-                key: B_instruments-8
+                key: B_instruments-8-cap
     cap9:
         needs: download
         runs-on: ubuntu-latest
@@ -330,7 +330,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_9.csv
-                key: B_instruments-9
+                key: B_instruments-9-cap
     cap10:
         needs: download
         runs-on: ubuntu-latest
@@ -354,7 +354,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_10.csv
-                key: B_instruments-10
+                key: B_instruments-10-cap
     cap11:
         needs: download
         runs-on: ubuntu-latest
@@ -378,7 +378,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_11.csv
-                key: B_instruments-11 
+                key: B_instruments-11-cap 
     cap12:
         needs: download
         runs-on: ubuntu-latest
@@ -402,7 +402,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_12.csv
-                key: B_instruments-12
+                key: B_instruments-12-cap
     cap13:
         needs: download
         runs-on: ubuntu-latest
@@ -426,7 +426,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_13.csv
-                key: B_instruments-13
+                key: B_instruments-13-cap
     cap14:
         needs: download
         runs-on: ubuntu-latest
@@ -450,7 +450,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_14.csv
-                key: B_instruments-14 
+                key: B_instruments-14-cap 
     cap15:
         needs: download
         runs-on: ubuntu-latest
@@ -474,7 +474,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_15.csv
-                key: B_instruments-15 
+                key: B_instruments-15-cap 
     cap16:
         needs: download
         runs-on: ubuntu-latest
@@ -498,7 +498,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_16.csv
-                key: B_instruments-16 
+                key: B_instruments-16-cap 
     cap17:
         needs: download
         runs-on: ubuntu-latest
@@ -522,7 +522,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_17.csv
-                key: B_instruments-17
+                key: B_instruments-17-cap
     cap18:
         needs: download
         runs-on: ubuntu-latest
@@ -546,7 +546,7 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_18.csv
-                key: B_instruments-18
+                key: B_instruments-18-cap
     cap19:
         needs: download
         runs-on: ubuntu-latest
@@ -570,5 +570,5 @@ jobs:
               uses: actions/cache/save@v4
               with:
                 path: B_instruments_19.csv
-                key: B_instruments-19
+                key: B_instruments-19-cap
             
