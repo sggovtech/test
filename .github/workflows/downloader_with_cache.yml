@@ -12,6 +12,8 @@ jobs:
             - name: delete existing cache
               run: |
                     gh cache delete --all
+              env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Download
               env:
                     URL1: ${{ secrets.URL1 }}
