@@ -203,7 +203,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_2.csv
+              path: |
+                B_instruments_2.csv
+                N_instruments_2.csv
               key: instruments-2
           - name: market_cap
             env:
@@ -216,11 +218,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_2.csv
+                  python3 download2.py 2
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_2.csv
+              path: |
+                B_instruments_2.csv
+                N_instruments_2.csv
               key: instruments-2-cap
   cap3:
       needs: download
@@ -231,7 +235,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_3.csv
+              path: |
+                B_instruments_3.csv
+                N_instruments_3.csv
               key: instruments-3
           - name: market_cap
             env:
@@ -244,11 +250,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_3.csv
+                  python3 download2.py 3
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_3.csv
+              path: |
+                B_instruments_3.csv
+                N_instruments_3.csv
               key: instruments-3-cap
   cap4:
       needs: download
@@ -259,7 +267,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_4.csv
+              path: |
+                B_instruments_4.csv
+                N_instruments_4.csv
               key: instruments-4 
           - name: market_cap
             env:
@@ -272,11 +282,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_4.csv
+                  python3 download2.py 4
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_4.csv
+              path: |
+                B_instruments_4.csv
+                N_instruments_4.csv
               key: instruments-4-cap 
   cap5:
       needs: download
@@ -287,7 +299,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_5.csv
+              path: |
+                B_instruments_5.csv
+                N_instruments_5.csv
               key: instruments-5 
           - name: market_cap
             env:
@@ -300,11 +314,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_5.csv
+                  python3 download2.py 5
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_5.csv
+              path: |
+                B_instruments_5.csv
+                N_instruments_5.csv
               key: instruments-5-cap
   cap6:
       needs: download
@@ -315,7 +331,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_6.csv
+              path: |
+                B_instruments_6.csv
+                N_instruments_6.csv
               key: instruments-6
           - name: market_cap
             env:
@@ -328,11 +346,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_6.csv
+                  python3 download2.py 6
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_6.csv
+              path: |
+                B_instruments_6.csv
+                N_instruments_6.csv
               key: instruments-6-cap
   cap7:
       needs: download
@@ -343,7 +363,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_7.csv
+              path: |
+                B_instruments_7.csv
+                N_instruments_7.csv
               key: instruments-7
           - name: market_cap
             env:
@@ -356,11 +378,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_7.csv
+                  python3 download2.py 7
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_7.csv
+              path: |
+                B_instruments_7.csv
+                N_instruments_7.csv
               key: instruments-7-cap 
   cap8:
       needs: download
@@ -371,7 +395,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_8.csv
+              path: |
+                B_instruments_8.csv
+                N_instruments_8.csv
               key: instruments-8 
           - name: market_cap
             env:
@@ -384,11 +410,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_8.csv
+                  python3 download2.py 8
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_8.csv
+              path: |
+                B_instruments_8.csv
+                N_instruments_8.csv
               key: instruments-8-cap
   cap9:
       needs: download
@@ -399,7 +427,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_9.csv
+              path: |
+                B_instruments_9.csv
+                N_instruments_9.csv
               key: instruments-9 
           - name: market_cap
             env:
@@ -412,11 +442,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_9.csv
+                  python3 download2.py 9
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_9.csv
+              path: |
+                B_instruments_9.csv
+                N_instruments_9.csv
               key: instruments-9-cap
   cap10:
       needs: download
@@ -427,7 +459,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_10.csv
+              path: |
+                B_instruments_10.csv
+                N_instruments_10.csv
               key: instruments-10 
           - name: market_cap
             env:
@@ -440,11 +474,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_10.csv
+                  python3 download2.py 10
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_10.csv
+              path: |
+                B_instruments_10.csv
+                N_instruments_10.csv
               key: instruments-10-cap
   cap11:
       needs: download
@@ -455,7 +491,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_11.csv
+              path: |
+                B_instruments_11.csv
+                N_instruments_11.csv
               key: instruments-11 
           - name: market_cap
             env:
@@ -468,11 +506,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_11.csv
+                  python3 download2.py 11
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_11.csv
+              path: |
+                B_instruments_11.csv
+                N_instruments_11.csv
               key: instruments-11-cap 
   cap12:
       needs: download
@@ -483,7 +523,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_12.csv
+              path: |
+                B_instruments_12.csv
+                N_instruments_12.csv
               key: instruments-12
           - name: market_cap
             env:
@@ -495,12 +537,14 @@ jobs:
                   URL6: ${{ secrets.URL6 }}
                   URL7: ${{ secrets.URL7 }}
             run: |
-              pip install -r requirements.txt
-              python3 download2.py B_instruments_12.csv
+                  pip install -r requirements.txt
+                  python3 download2.py 12
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_12.csv
+              path: |
+                B_instruments_12.csv
+                N_instruments_12.csv
               key: instruments-12-cap
   cap13:
       needs: download
@@ -511,7 +555,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_13.csv
+              path: |
+                B_instruments_13.csv
+                N_instruments_13.csv
               key: instruments-13
           - name: market_cap
             env:
@@ -524,11 +570,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_13.csv
+                  python3 download2.py 13
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_13.csv
+              path: |
+                B_instruments_13.csv
+                N_instruments_13.csv
               key: instruments-13-cap
   cap14:
       needs: download
@@ -539,7 +587,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_14.csv
+              path: |
+                B_instruments_14.csv
+                N_instruments_14.csv
               key: instruments-14 
           - name: market_cap
             env:
@@ -552,11 +602,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_14.csv
+                  python3 download2.py 14
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_14.csv
+              path: |
+                B_instruments_14.csv
+                N_instruments_14.csv
               key: instruments-14-cap 
   cap15:
       needs: download
@@ -567,7 +619,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_15.csv
+              path: |
+                B_instruments_15.csv
+                N_instruments_15.csv
               key: instruments-15 
           - name: market_cap
             env:
@@ -580,11 +634,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_15.csv
+                  python3 download2.py 15
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_15.csv
+              path: |
+                B_instruments_15.csv
+                N_instruments_15.csv
               key: instruments-15-cap 
   cap16:
       needs: download
@@ -595,7 +651,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_16.csv
+              path: |
+                B_instruments_16.csv
+                N_instruments_16.csv
               key: instruments-16 
           - name: market_cap
             env:
@@ -608,11 +666,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_16.csv
+                  python3 download2.py 16
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_16.csv
+              path: |
+                B_instruments_16.csv
+                N_instruments_16.csv
               key: instruments-16-cap 
   cap17:
       needs: download
@@ -623,7 +683,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_17.csv
+              path: |
+                B_instruments_17.csv
+                N_instruments_17.csv
               key: instruments-17 
           - name: market_cap
             env:
@@ -636,11 +698,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_17.csv
+                  python3 download2.py 17
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_17.csv
+              path: |
+                B_instruments_17.csv
+                N_instruments_17.csv
               key: instruments-17-cap
   cap18:
       needs: download
@@ -651,7 +715,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_18.csv
+              path: |
+                B_instruments_18.csv
+                N_instruments_18.csv
               key: instruments-18
           - name: market_cap
             env:
@@ -664,11 +730,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_18.csv
+                  python3 download2.py 18
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_18.csv
+              path: |
+                B_instruments_18.csv
+                N_instruments_18.csv
               key: instruments-18-cap
   cap19:
       needs: download
@@ -679,7 +747,9 @@ jobs:
           - name: restore
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_19.csv
+              path: |
+                B_instruments_19.csv
+                N_instruments_19.csv
               key: instruments-19
           - name: market_cap
             env:
@@ -692,11 +762,13 @@ jobs:
                   URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
-                  python3 download2.py B_instruments_19.csv
+                  python3 download2.py 19
           - name: save
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_19.csv
+              path: |
+                B_instruments_19.csv
+                N_instruments_19.csv
               key: instruments-19-cap
   combine:
       needs: [cap1, cap2, cap3, cap4, cap5, cap6, cap7, cap8, cap9, cap10, cap11, cap12, cap13, cap14, cap15, cap16, cap17, cap18, cap19]
@@ -705,97 +777,135 @@ jobs:
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_1.csv
+              path: |
+                B_instruments_1.csv
+                N_instruments_1.csv
               key: instruments-1-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_2.csv
+              path: |
+                B_instruments_2.csv
+                N_instruments_2.csv
               key: instruments-2-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_3.csv
+              path: |
+                B_instruments_3.csv
+                N_instruments_3.csv
               key: instruments-3-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_4.csv
+              path: |
+                B_instruments_4.csv
+                N_instruments_4.csv
               key: instruments-4-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_5.csv
+              path: |
+                B_instruments_5.csv
+                N_instruments_5.csv
               key: instruments-5-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_6.csv
+              path: |
+                B_instruments_6.csv
+                N_instruments_6.csv
               key: instruments-6-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_7.csv
+              path: |
+                B_instruments_7.csv
+                N_instruments_7.csv
               key: instruments-7-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_8.csv
+              path: |
+                B_instruments_8.csv
+                N_instruments_8.csv
               key: instruments-8-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_9.csv
+              path: |
+                B_instruments_9.csv
+                N_instruments_9.csv
               key: instruments-9-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_10.csv
+              path: |
+                B_instruments_10.csv
+                N_instruments_10.csv
               key: instruments-10-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_11.csv
+              path: |
+                B_instruments_11.csv
+                N_instruments_11.csv
               key: instruments-11-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_12.csv
+              path: |
+                B_instruments_12.csv
+                N_instruments_12.csv
               key: instruments-12-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_13.csv
+              path: |
+                B_instruments_13.csv
+                N_instruments_13.csv
               key: instruments-13-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_14.csv
+              path: |
+                B_instruments_14.csv
+                N_instruments_14.csv
               key: instruments-14-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_15.csv
+              path: |
+                B_instruments_15.csv
+                N_instruments_15.csv
               key: instruments-15-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_16.csv
+              path: |
+                B_instruments_16.csv
+                N_instruments_16.csv
               key: instruments-16-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_17.csv
+              path: |
+                B_instruments_17.csv
+                N_instruments_17.csv
               key: instruments-17-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_18.csv
+              path: |
+                B_instruments_18.csv
+                N_instruments_18.csv
               key: instruments-18-cap
           - name: get cache
             uses: actions/cache/restore@v4
             with:
-              path: B_instruments_19.csv
+              path: |
+                B_instruments_19.csv
+                N_instruments_19.csv
               key: instruments-19-cap
           - name: Checkout
             uses: actions/checkout@v3
