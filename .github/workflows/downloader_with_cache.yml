@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: delete existing cache
             continue-on-error: true
             run: |
@@ -167,7 +167,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -199,7 +199,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -231,7 +231,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -263,7 +263,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -295,7 +295,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -327,7 +327,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -359,7 +359,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -391,7 +391,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -423,7 +423,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -455,7 +455,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -487,7 +487,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -519,7 +519,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -551,7 +551,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -583,7 +583,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -615,7 +615,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -647,7 +647,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -679,7 +679,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -711,7 +711,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -743,7 +743,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: restore
             uses: actions/cache/restore@v4
             with:
@@ -908,11 +908,11 @@ jobs:
                 N_instruments_19.csv
               key: instruments-19-cap
           - name: Checkout
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
           - name: combine
             run: |
               pip install -r requirements.txt
               python3 combine.py
-
-
-            
+              git add combined_N_instruments.csv combined_B_instruments.csv
+              git commit -m "combined"
+              git push origin main
