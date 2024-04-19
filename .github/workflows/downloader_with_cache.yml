@@ -21,6 +21,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                 pip3 install -r requirements.txt
                 python3 download.py
@@ -135,6 +139,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_1.csv
@@ -158,7 +166,11 @@ jobs:
             env:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
-                  URL3: ${{ secrets.URL3 }}-cap
+                  URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_2.csv
@@ -183,6 +195,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_3.csv
@@ -207,6 +223,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_4.csv
@@ -231,6 +251,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_5.csv
@@ -255,6 +279,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_6.csv
@@ -279,6 +307,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_7.csv
@@ -303,6 +335,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_8.csv
@@ -327,6 +363,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_9.csv
@@ -351,6 +391,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_10.csv
@@ -375,6 +419,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_11.csv
@@ -399,6 +447,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
               pip install -r requirements.txt
               python3 download2.py B_instruments_12.csv
@@ -423,6 +475,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_13.csv
@@ -447,6 +503,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_14.csv
@@ -471,6 +531,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_15.csv
@@ -495,6 +559,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_16.csv
@@ -519,6 +587,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_17.csv
@@ -543,6 +615,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_18.csv
@@ -567,6 +643,10 @@ jobs:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
                   URL3: ${{ secrets.URL3 }}
+                  URL4: ${{ secrets.URL4 }}
+                  URL5: ${{ secrets.URL5 }}
+                  URL6: ${{ secrets.URL6 }}
+                  URL7: ${{ secrets.URL7 }}
             run: |
                   pip install -r requirements.txt
                   python3 download2.py B_instruments_19.csv
