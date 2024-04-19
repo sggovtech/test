@@ -14,10 +14,10 @@ jobs:
                     URL1: ${{ secrets.URL1 }}
                     URL2: ${{ secrets.URL2 }}
                     URL3: ${{ secrets.URL3 }}
-URL4: ${{ secrets.URL4 }}
-URL5: ${{ secrets.URL5 }}
-URL6: ${{ secrets.URL6 }}
-URL7: ${{ secrets.URL7 }}
+                    URL4: ${{ secrets.URL4 }}
+                    URL5: ${{ secrets.URL5 }}
+                    URL6: ${{ secrets.URL6 }}
+                    URL7: ${{ secrets.URL7 }}
               run: |
                   sudo apt update
                   sudo apt install python3 python3-pip -y
