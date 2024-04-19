@@ -6,8 +6,11 @@ import os
 from bs4 import BeautifulSoup
 import re
 import random
+import urllib
+import json
 
-async def get_random_user_agent(client) -> str:
+
+async def get_random_user_agent() -> str:
     """
     Returns a random user agent string.
     
@@ -123,7 +126,7 @@ async def get_random_user_agent(client) -> str:
     return random.choice(agents)
     
 
-async def get_hidden_input(content):
+async def B_get_hidden_input(content):
     """ Return the dict contain the hidden input 
     """
     tags = dict()
@@ -141,10 +144,10 @@ async def get_hidden_input(content):
             continue
     return tags
 
-async def shareholding_requester(client:httpx.Client,instrument:dict) -> dict:
+async def B_shareholding_requester(client:httpx.Client,instrument:dict) -> dict:
     code = instrument['Security Code']
     print(code)
-    rand_user_agent = await get_random_user_agent(client)
+    rand_user_agent = await get_random_user_agent()
     headers = {"User-Agent": rand_user_agent, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate", "Content-Type": "application/x-www-form-urlencoded", "Origin": "https://www.bseindia.com", "Referer": "https://www.bseindia.com/markets/equity/eqreports/bulknblockdeals.aspx", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "same-origin", "Sec-Fetch-User": "?1", "Te": "trailers"}
     url = os.environ["URL3"]
     while True:
@@ -160,7 +163,7 @@ async def shareholding_requester(client:httpx.Client,instrument:dict) -> dict:
         except Exception as e:
             break
 
-    hidden = await get_hidden_input(response.content)
+    hidden = await B_get_hidden_input(response.content)
     values = {
         'ctl00$ContentPlaceHolder1$hdnCode':'',
         'ctl00$ContentPlaceHolder1$industry':'ALL',
@@ -187,7 +190,7 @@ async def shareholding_requester(client:httpx.Client,instrument:dict) -> dict:
             pass
         except Exception as e:
             break
-    hidden = await get_hidden_input(response.content)
+    hidden = await B_get_hidden_input(response.content)
     values = {
                 "__EVENTTARGET": "ctl00$ContentPlaceHolder1$gvData$ctl02$lnkXML",
                 "__EVENTARGUMENT": '', 
@@ -227,24 +230,110 @@ async def shareholding_requester(client:httpx.Client,instrument:dict) -> dict:
     else:
         return instrument
 
-async def shareholding_pattern(file_name) -> pd.DataFrame:
-    data = pd.read_csv(file_name)
-    data["market_cap"] = ""
-    data = data.to_dict(orient='records')
+async def N_shareholding_requester(client,instrument:dict) -> dict:
+    N_code = instrument['SYMBOL']
+    print(N_code)
+    N_name = instrument['NAME OF COMPANY']
+    user_agent = await get_random_user_agent()
+    url1 = os.environ["URL6"]
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8", "Accept-Language": "en-US,en;q=0.5", "Accept-Encoding": "gzip, deflate, br", "Upgrade-Insecure-Requests": "1", "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate", "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1", "Te": "trailers"}
+    while True:
+        try:
+            resp1 = await client.get(url1, headers=headers,follow_redirects=True)
+            break
+        except httpx.ReadTimeout:
+            print(1)
+            pass
+        except httpx.ConnectTimeout:
+            print(2)
+            pass
+        except httpx.HTTPError:
+            print(3)
+            pass
+        except Exception as e:
+            break
+    cookies_dict = {k: v for k, v in resp1.cookies.items()}
+    url2 = os.environ["URL7"]+f"symbol={N_code}&issuer={urllib.parse.quote(N_name, safe='')}"
+    while True:
+        try:
+            resp2 = await client.get(url2, headers=headers, cookies=cookies_dict)
+            break
+        except httpx.ReadTimeout:
+            print(4)
+            pass
+        except httpx.ConnectTimeout:
+            print(5)
+            pass
+        except httpx.HTTPError:
+            print(6)
+            pass
+        except Exception as e:
+            break
+    data = json.loads(resp2.text) 
+    if len(data) > 0:
+        xrbl_url = data[0]['xbrl']
+        while True:
+            try:
+                resp3 = await client.get(xrbl_url, headers=headers)
+                break
+            except httpx.ReadTimeout:
+                print(7)
+                pass
+            except httpx.ConnectTimeout:
+                print(8)
+                pass
+            except httpx.HTTPError:
+                print(9)
+                pass
+            except Exception as e:
+                break
+        if "<xbrli" in resp3.text:
+            num_shares = re.findall(r'<in-bse-shp:NumberOfFullyPaidUpEquityShares contextRef="ShareholdingPatternI" unitRef="shares" decimals="INF">(\d+)</in-bse-shp:NumberOfFullyPaidUpEquityShares>', resp3.text)
+            if len(num_shares) > 0:
+                num_shares = int(num_shares[0])
+                instrument["market_cap"] = num_shares
+                return instrument
+            else:
+                return instrument
+        else:
+            return instrument
+
+
+
+
+async def shareholding_pattern(file_pattern) -> tuple[pd.DataFrame,pd.DataFrame]:
+    B_file_name = f"B_instruments_{file_pattern}.csv"
+    N_file_name = f"N_instruments_{file_pattern}.csv"
+    B_data = pd.read_csv(B_file_name)
+    N_data = pd.read_csv(N_file_name)
+    B_data["market_cap"] = ""
+    N_data["market_cap"] = ""
+    B_data = B_data.to_dict(orient='records')
+    N_data = N_data.to_dict(orient='records')
 
     async with httpx.AsyncClient() as client:
-        chunks = [data[i:i+20] for i in range(0, len(data), 20)]
-        results = []
-        for chunk in chunks:
-            tasks = [shareholding_requester(client, instrument) for instrument in chunk]
+        B_chunks = [B_data[i:i+20] for i in range(0, len(B_data), 20)]
+        N_chunks = [N_data[i:i+20] for i in range(0, len(N_data), 20)]
+        B_results = []
+        N_results = []
+        for chunk in B_chunks :
+            client.cookies.clear()
+            tasks = [B_shareholding_requester(client, instrument) for instrument in chunk]
             chunk_results = await asyncio.gather(*tasks)
-            results.extend(chunk_results)
-    return results
+            B_results.extend(chunk_results)
+        for chunk in N_chunks :
+            client.cookies.clear()
+            tasks = [N_shareholding_requester(client,instrument) for instrument in chunk]
+            chunk_results = await asyncio.gather(*tasks)
+            N_results.extend(chunk_results)
+    return B_results, N_results
 
 async def main(arg:str):
-    data = await shareholding_pattern(arg)
-    df = pd.DataFrame(data)
-    df.to_csv(arg, index=False)
+    B_data,N_data = await shareholding_pattern(arg)
+    B_df = pd.DataFrame(B_data)
+    B_df.to_csv(f"B_instruments_{arg}.csv", index=False)
+    N_df = pd.DataFrame(N_data)
+    N_df.to_csv(f"N_instruments_{arg}.csv", index=False)
 
 if __name__ == "__main__":
     asyncio.run(main(sys.argv[1]))
