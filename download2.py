@@ -253,7 +253,8 @@ async def N_shareholding_requester(client,instrument:dict) -> dict:
         except Exception as e:
             break
     cookies_dict = {k: v for k, v in resp1.cookies.items()}
-    url2 = os.environ["URL7"]+f"symbol={N_code}&issuer={urllib.parse.quote(N_name, safe='')}"
+    url2 = os.environ["URL7"]+f"symbol={urllib.parse.quote(N_code,safe='')}&issuer={urllib.parse.quote(N_name, safe='')}"
+    print(url2)
     while True:
         try:
             resp2 = await client.get(url2, headers=headers, cookies=cookies_dict)
@@ -316,24 +317,26 @@ async def shareholding_pattern(file_pattern) -> tuple[pd.DataFrame,pd.DataFrame]
         N_chunks = [N_data[i:i+20] for i in range(0, len(N_data), 20)]
         B_results = []
         N_results = []
-        for chunk in B_chunks :
-            client.cookies.clear()
-            tasks = [B_shareholding_requester(client, instrument) for instrument in chunk]
-            chunk_results = await asyncio.gather(*tasks)
-            B_results.extend(chunk_results)
+        # for chunk in B_chunks :
+        #     client.cookies.clear()
+        #     tasks = [B_shareholding_requester(client, instrument) for instrument in chunk]
+        #     chunk_results = await asyncio.gather(*tasks)
+        #     B_results.extend(chunk_results)
         for chunk in N_chunks :
             client.cookies.clear()
             tasks = [N_shareholding_requester(client,instrument) for instrument in chunk]
             chunk_results = await asyncio.gather(*tasks)
             N_results.extend(chunk_results)
+        print(N_results)
     return B_results, N_results
 
 async def main(arg:str):
     B_data,N_data = await shareholding_pattern(arg)
-    B_df = pd.DataFrame(B_data)
-    B_df.to_csv(f"B_instruments_{arg}.csv", index=False)
+    # B_df = pd.DataFrame(B_data)
+    # B_df.to_csv(f"B_instruments_{arg}.csv", index=False)
     N_df = pd.DataFrame(N_data)
-    N_df.to_csv(f"N_instruments_{arg}.csv", index=False)
+    print(N_df)
+    #N_df.to_csv(f"N_instruments_{arg}.csv", index=False)
 
 if __name__ == "__main__":
     asyncio.run(main(sys.argv[1]))

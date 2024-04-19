@@ -207,7 +207,7 @@ jobs:
                 B_instruments_2.csv
                 N_instruments_2.csv
               key: instruments-2
-          - name: market_cap
+          - name: market_cap 
             env:
                   URL1: ${{ secrets.URL1 }}
                   URL2: ${{ secrets.URL2 }}
