@@ -23,14 +23,14 @@ def download_NSE_instruments(url1,url2) -> pd.DataFrame:
     df = pd.read_csv(io.StringIO(data))
     return df
 
-# url1 = os.environ["URL1"]
-# url2 = os.environ["URL2"]
-# df1 = B_download_instruments(url1)
-# df2 = B_download_instruments(url2)
-# combined_df = pd.concat([df1, df2])
-# dfs = np.array_split(combined_df, 19)
-# for i, df in enumerate(dfs, 1):
-#     df.to_csv(f"B_instruments_{i}.csv", index=False)
+url1 = os.environ["URL1"]
+url2 = os.environ["URL2"]
+df1 = B_download_instruments(url1)
+df2 = B_download_instruments(url2)
+combined_df = pd.concat([df1, df2])
+dfs = np.array_split(combined_df, 19)
+for i, df in enumerate(dfs, 1):
+    df.to_csv(f"B_instruments_{i}.csv", index=False)
 url4 = os.environ["URL4"]
 url5 = os.environ["URL5"]
 df4 = download_NSE_instruments(url4,url5)

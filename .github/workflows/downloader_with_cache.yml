@@ -32,8 +32,10 @@ jobs:
           - name: "cache1"
             uses: actions/cache/save@v4
             with:
-              path: B_instruments_1.csv
               key: B_instruments-1
+              path: | 
+              B_instruments_1.csv
+              N_instruments_1.csv
           - name: "cache2"
             uses: actions/cache/save@v4
             with:
